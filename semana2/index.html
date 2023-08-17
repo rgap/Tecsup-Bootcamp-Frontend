@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularios</title>
+    <meta property="og:title" content="Rel Guzman - Mi portafolio web" />
+    <meta property="og:description" content="Full Stack Developer" />
+    <meta
+      property="og:image"
+      content="https://lh3.googleusercontent.com/a/AAcHTteeeEeTkKj5alOWvE-X3sFBHqyDJEUQP7yXmdRuQ6BnN4A=s288-c-no"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="keywords" content="Rel Guzman, Formulario" />
+  </head>
+  <style>
+    * {
+      font-family: Helvetica, sans-serif;
+    }
+  </style>
+  <body>
+    <h1>Formularios</h1>
+    <!-- GET es el valor defecto -->
+    <form action="" method="POST">
+      <p><input type="text" placeholder="Nombre" name="nombre" /></p>
+      <p><input type="text" placeholder="Apellido" name="apellido" /></p>
+      <p><input type="email" placeholder="E-mail" name="correo" /></p>
+      <p>
+        <input
+          type="date"
+          placeholder="Fecha de nacimiento"
+          name="fecha_de_nacimiento"
+        />
+      </p>
+      <p><input type="number" placeholder="DNI" name="dni" /></p>
+      <p><input type="tel" placeholder="Telefono" name="telefono" /></p>
+      <p><input type="password" placeholder="Contrasena" name="password" /></p>
+
+      <p>Genero</p>
+      <p>
+        <label for="">
+          Masculino
+          <input type="radio" name="genero" value="masculino" />
+        </label>
+      </p>
+
+      <p>
+        <label for="">
+          Femenino
+          <input type="radio" name="genero" value="femenino" />
+        </label>
+      </p>
+
+      <p>
+        <label for="">
+          Otro
+          <input type="radio" name="genero" value="otro" />
+        </label>
+      </p>
+
+      <!-- readonly input -->
+      <input type="text" value="Readonly" readonly />
+
+      <!-- options -->
+      <p>Paises</p>
+      <select name="paises" id="">
+        <option value="" disabled selected>Paises</option>
+        <option value="pe">Peru</option>
+        <option value="ar">Argentina</option>
+        <option value="ch">Chile</option>
+        <option value="co">Colombia</option>
+      </select>
+
+      <p>Cursos</p>
+      <p>Java Script<input type="checkbox" name="Cursos_1" /></p>
+      <p>HTML<input type="checkbox" name="Cursos_2" /></p>
+      <p>CSS<input type="checkbox" name="Cursos_3" /></p>
+      <p>React JS<input type="checkbox" name="Cursos_4" /></p>
+      <p>Next JS<input type="checkbox" name="Cursos_5" /></p>
+      <button type="submit">Enviar</button>
+    </form>
+  </body>
+</html>

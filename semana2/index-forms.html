@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Forms -->
+    <header><h1>Formularios</h1></header>
+    <main>
+      <hr />
+      <form action="">
+        <label for="nombres">Nombres y Apellidos</label>
+        <input
+          type="text"
+          id="nombres"
+          placeholder="Ej. Juan Perez"
+          required
+          minlength="2"
+          maxlength="10"
+        />
+        <br />
+        <label for="edad">Edad</label>
+        <input type="number" id="edad" min="17" max="100" />
+        <br />
+        <label for="correo">Correo Electrónico</label>
+        <input type="email" id="correo" />
+        <br />
+        <label for="casado">Estado Civil</label>
+        <br />
+        <input type="radio" id="casado" name="estadocivil" value="casado" />
+        <label for="casado">Casado/a</label>
+        <br />
+        <input
+          type="radio"
+          id="conviviente"
+          name="estadocivil"
+          value="conviviente"
+        />
+        <label for="casado">Convivientes</label>
+        <br />
+        <input type="radio" id="soltero" name="estadocivil" value="soltero" />
+        <label for="casado">Soltero</label>
+        <br />
+        <!-- switch/select -->
+        <label>Ciudad</label>
+        <select>
+          <option selected disabled>Seleccione una opción</option>
+          <option value="lima">Lima</option>
+          <option value="arequipa">Arequipa</option>
+          <option value="trujillo">Trujillo</option>
+        </select>
+        <!-- submit -->
+        <input type="submit" value="Enviar" />
+      </form>
+    </main>
+  </body>
+</html>
