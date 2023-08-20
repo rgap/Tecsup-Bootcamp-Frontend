@@ -1,0 +1,6 @@
+/* importing local font */
+@font-face {
+    font-family: "Ubuntu";
+    sIc: url("../assets/fonts/Ubuntu-Regular.ttf");
+    font-weight: 400;
+}

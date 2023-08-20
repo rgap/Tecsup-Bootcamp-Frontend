@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    section {
+      width: 100px;
+      height: 100px;
+      border: 3px solid red;
+      padding: 20px;
+      margin: auto;
+    }
+
+    a {
+      border: 3px solid red;
+    }
+    div {
+      border: 3px solid blue;
+    }
+    .inline-element {
+      display: inline;
+    }
+    .inlineblock-element {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+  <body>
+    <section></section>
+
+    <br />
+    <br />
+
+    <!-- inline element -->
+    <!-- these occupy the width of its content -->
+    <!-- Any height and width properties will have no effect. -->
+
+    <a>Inline 1</a>
+    <a>Inline 2</a>
+    <a>Inline 3</a>
+
+    <br />
+    <br />
+
+    <div class="inline-element">Inline div 1</div>
+    <div class="inline-element">Inline div 2</div>
+    <div class="inline-element">Inline div 3</div>
+
+    <br />
+    <br />
+
+    <!-- inline-block element -->
+    <!-- these occupy the with of its content  -->
+    <!-- but you can set its height and width -->
+
+    <div class="inlineblock-element">Inline-block div 1</div>
+    <div class="inlineblock-element">Inline-block div 2</div>
+    <div class="inlineblock-element">Inline-block div 3</div>
+
+    <br />
+    <br />
+
+    <!-- block element -->
+    <!-- these occupy the width of the container -->
+
+    <div>Block 1</div>
+    <div>Block 2</div>
+    <div>Block 3</div>
+  </body>
+</html>
