@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .parent {
+        width: 200px;
+        height: 200px;
+        top: 10px;
+        background-color: green;
+      }
+      .child {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      .sibling {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- The box is considered NOT POSITIONED -->
+    <!-- Elements positioned according to the normal flow of the page -->
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+    <div class="sibling"></div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container1 {
+  display: grid;
+  /* Display columns (each parameter is a column)*/
+  grid-template-columns: 20px auto auto auto;
+}
+.container1 div {
+  border: solid;
+}
+.container2 {
+  display: grid;
+  /* Display rows */
+  grid-template-rows: 100px 50px 20px 10px;
+}
+.container2 div {
+  border: solid;
+}
