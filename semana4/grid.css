@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+/* .container {
+  display: grid;
+  grid-template-rows: 100px 50px 20px 10px;
+}
+.container div {
+  border: solid;
+} */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  display: grid;
+  grid-template-areas:
+    "header menu menu menu"
+    "hero hero hero hero"
+    "main main empty image"
+    "main main empty extra"
+    "banner banner banner banner";
+}
+.header {
+  background-color: rgb(26, 26, 57);
+  grid-area: header;
+  /* both will grow */
+  height: 5vh;
+}
+.menu {
+  background-color: coral;
+  grid-area: menu;
+}
+.hero {
+  background-color: skyblue;
+  grid-area: hero;
+  height: 60vh;
+}
+.main {
+  background-color: rgb(2, 100, 26);
+  grid-area: main;
+  height: 25vh;
+}
+.empty {
+  background-color: #fff;
+  grid-area: empty;
+}
+.image {
+  background-color: rgb(201, 255, 201);
+  color: #000;
+  grid-area: image;
+}
+.extra {
+  background-color: rgb(38, 145, 216);
+  grid-area: extra;
+}
+.banner {
+  background-color: rgba(113, 128, 4, 0.743);
+  grid-area: banner;
+  height: 10vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    grid-template-areas:
+      "header"
+      "menu"
+      "hero"
+      "main"
+      "banner"
+      "extra"
+      "image"
+      "empty";
+  }
+  .header {
+    height: 10vh;
+  }
+  .menu {
+    height: 10vh;
+  }
+  .hero {
+    height: 25vh;
+  }
+  .main {
+    height: 25vh;
+  }
+  .banner {
+    height: 10vh;
+  }
+  .extra {
+    height: 10vh;
+  }
+  .image {
+    height: 10vh;
+  }
+  .extra {
+    height: 10vh;
+  }
+}
