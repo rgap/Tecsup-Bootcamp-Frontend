@@ -9,17 +9,17 @@
         width: 200px;
         height: 200px;
         top: 10px;
-        background-color: green;
+        background-color: rgb(147, 241, 147);
       }
       .child {
         width: 100px;
         height: 100px;
-        background-color: red;
+        background-color: rgb(251, 141, 141);
       }
-      .sibling {
+      .parent2 {
         width: 100px;
         height: 100px;
-        background-color: blue;
+        background-color: rgb(143, 143, 255);
       }
     </style>
   </head>
@@ -27,8 +27,9 @@
     <!-- The box is considered NOT POSITIONED -->
     <!-- Elements positioned according to the normal flow of the page -->
     <div class="parent">
-      <div class="child"></div>
+      Parent
+      <div class="child">Child</div>
     </div>
-    <div class="sibling"></div>
+    <div class="parent2">Parent2</div>
   </body>
 </html>

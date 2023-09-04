@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height: 100px">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,20 +9,21 @@
         position: relative;
         width: 200px;
         height: 200px;
-        background-color: green;
-        z-index: -1;
+        background-color: rgb(147, 241, 147);
+        z-index: 0;
         left: 25px;
         top: 25px;
       }
       .child {
         width: 100px;
         height: 100px;
-        background-color: red;
+        background-color: rgb(251, 141, 141);
       }
-      .sibling {
+      .parent2 {
         width: 100px;
         height: 100px;
-        background-color: blue;
+        z-index: 10;
+        background-color: rgb(143, 143, 255);
       }
     </style>
   </head>
@@ -31,8 +32,9 @@
     <!-- The top, bottom, left and right values will have some effect. -->
     <!-- It introduces the use of z-index -->
     <div class="parent">
-      <div class="child"></div>
+      Parent
+      <div class="child">Child</div>
     </div>
-    <div class="sibling"></div>
+    <div class="parent2">Parent2</div>
   </body>
 </html>

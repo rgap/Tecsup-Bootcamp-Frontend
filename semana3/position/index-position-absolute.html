@@ -5,60 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      body {
+        height: 1000px;
+      }
       .parent-1 {
+        /* Relative parent */
         position: relative;
         width: 200px;
         height: 200px;
-        background-color: green;
+        background-color: rgb(147, 241, 147);
       }
+      .child-1 {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(8, 147, 145);
+        position: absolute; /* Relative parent: move according to parent1 */
+        right: 5px;
+        bottom: 5px;
+      }
+
       .parent-2 {
+        /* Static parent */
         width: 200px;
         height: 200px;
-        background-color: pink;
+        background-color: rgb(143, 143, 255);
       }
+      .child-2 {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(251, 141, 141);
+        position: absolute; /* Static parent: move according to body */
+        left: 10px;
+        bottom: 30px;
+      }
+
       .parent-3 {
+        /* Absolute parent */
         position: absolute;
         top: 20px;
         left: 300px;
         width: 200px;
         height: 200px;
-        background-color: orange;
-      }
-      .child-1 {
-        width: 100px;
-        height: 100px;
-        background-color: yellow;
-        position: absolute; /* parent - relative:move according to parent1 */
-        right: 5px;
-        bottom: 5px;
-      }
-      .child-2 {
-        width: 100px;
-        height: 100px;
-        background-color: red;
-        position: absolute; /* parent - static: move according to body */
-        left: 3px;
-        top: 20px;
+        background-color: rgb(247, 155, 255);
       }
       .child-3 {
         width: 100px;
         height: 100px;
-        background-color: black;
-        position: absolute; /* parent - absolute: move according to parent3 */
-        left: 3px;
-        top: 20px;
+        background-color: rgb(208, 122, 47);
+        position: absolute; /* Absolute parent: move according to parent3 */
+        left: 2px;
+        top: 30px;
+      }
+      .container {
+        background-color: rgb(201, 201, 201);
       }
     </style>
   </head>
   <body>
-    <div class="parent-1">
-      <div class="child-1"></div>
-    </div>
-    <div class="parent-2">
-      <div class="child-2"></div>
-    </div>
-    <div class="parent-3">
-      <div class="child-3"></div>
+    <div class="container">
+      <div class="parent-1">
+        Parent1 - relative
+        <div class="child-1">Child1 - absolute</div>
+      </div>
+      <div class="parent-2">
+        Parent2 - absolute
+        <div class="child-2">Child2 - absolute</div>
+      </div>
+      <div class="parent-3">
+        Parent3 - absolute
+        <div class="child-3">Child3 - absolute</div>
+      </div>
     </div>
   </body>
 </html>
