@@ -1,9 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="US-ASCII" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <style>
+    @font-face {
+      font-family: "Sansation";
+      src: url("fonts/sansation_light.eot"),
+        url("fonts/sansation_light.eot?#iefix") format("embedded-opentype"),
+        url("fonts/sansation_light.woff2") format("woff2"),
+        url("fonts/sansation_light.woff") format("woff"),
+        url("fonts/sansation_light.ttf") format("truetype"),
+        url("fonts/sansation_light.svg") format("svg");
+      font-weight: 300;
+    }
+
+    @font-face {
+      font-family: "Sansation";
+      src: url("fonts/sansation_bold.eot"),
+        url("fonts/sansation_bold.eot?#iefix") format("embedded-opentype"),
+        url("fonts/sansation_bold.woff2") format("woff2"),
+        url("fonts/sansation_bold.woff") format("woff"),
+        url("fonts/sansation_bold.ttf") format("truetype"),
+        url("fonts/sansation_bold.svg") format("svg");
+      font-weight: 700;
+    }
+    body {
+      font-family: "Sansation", serif;
+    }
+    /* numeric values [1,1000] */
+    .weight300 {
+      font-weight: 300;
+    }
+    .weight700 {
+      font-weight: 700;
+    }
+  </style>
+  <body>
+    <h1 class="weight300">foo foo</h1>
+    <h1 class="weight700">foo foo</h1>
+  </body>
 </html>
