@@ -22,5 +22,20 @@ form.onsubmit = function (event) {
     // console.log(input.name, input.value);
     values[input.name] = input.value
   }
-  console.log(values)
+  // Object.values gets values from an object
+  console.log(Object.values(values));
+  const inputValues = Object.values(values)
+
+  const validacion = inputValues.find((value) => !value)
+  const validacion2 = inputValues.every((value) => value !== "")
+  console.log(typeof validacion)
+
+  // when it is empty => typeof validacion = "string"
+  // when it is not empty => undefined
+  if (typeof validacion === "string") {
+    alert("Complete todos los campos ")
+    return;
+  }
+
+
 };
