@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+
+  <script>
+    // JS
+    /*
+     */
+    // console.log(10%-4);
+    // z = (n) => 0
+    // console.log(typeof(z) )
+
+    // console.log(true + false);
+
+    // console.log(10 )
+
+    // console.log('5' + 1);
+
+    // let a
+    // a = 1
+    // console.log(a )
+
+    // const es inmutable
+    // const b = 1
+    // b = 3
+
+    // let a = null
+    // let a = 1
+    // let á = 1
+    // console.log(á)
+
+    // let = 'hola'
+    // console.log(let)
+
+    // let = 'hola'
+    // let as$ = 2
+    // Template literals (Template strings)
+    // let as = 2;
+    // console.log(`numeros ${as}`);
+    // console.log(`numeros \` ${as}`);
+
+    let n1 = 10;
+    let n2 = 20;
+
+    // function declaration - hoisting works
+    function sumar(a, b) {
+      a += 5;
+      return a + b;
+    }
+    console.log(sumar(n1, n2)); //
+
+    console.log(n1);
+
+    // function expression - hoisting doesnt work
+    const sumarDosNums = function funcionSuma(a, b) {
+      return a + b;
+    };
+    console.log(sumarDosNums(n1, n2));
+
+    // funcion anonima (function expression)
+    const saludo = function () {
+      return "hola";
+    };
+    console.log(saludo());
+
+    // arrow function
+    const sumarArrow = (a, b) => a + b;
+
+    const sumarArrow2 = (a, b) => {
+      a += 5;
+      return a + b;
+    };
+    console.log(sumarArrow2(1, 2));
+
+    const sumarArrow3 = (a, b = 100) => {
+      a += 5;
+      return a + b;
+    };
+    console.log(sumarArrow3(1));
+
+
+    const sumarArrow4 = (a, b = 100 ) => {
+      a += 5;
+      return a + b;
+    };
+    console.log(sumarArrow4(1));
+
+    tecnologias = [20, 30, 'react', 'angular', ]
+    const nuevoarray = tecnologias.filter(function (technology) {
+        return technology == 'react'
+    })
+
+    console.log(nuevoarray)
+
+  </script>
+</html>

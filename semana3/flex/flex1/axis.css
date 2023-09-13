@@ -1,0 +1,46 @@
+.axis {
+  position: absolute;
+}
+
+.cross-axis {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 100%;
+  background-color: red;
+}
+
+.main-axis {
+  top: 50%;
+  transform: translateY(-50%);
+  height: 5px;
+  width: 100%;
+  background-color: blue;
+  right: 0;
+}
+
+.axis::after {
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
+  font-size: 2em;
+}
+
+.main-axis::after {
+  position: absolute;
+  content: "Cross Axis";
+  color: blue;
+}
+
+.cross-axis {
+  bottom: 0;
+}
+
+.cross-axis::after {
+  white-space: nowrap;
+
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  content: "Main Axis";
+  color: red;
+}

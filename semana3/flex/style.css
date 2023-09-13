@@ -2,6 +2,7 @@
     margin: 0;
     padding 0;
 }
+
 section {
     display: flex;
     /* al usar display: flex activamos */
