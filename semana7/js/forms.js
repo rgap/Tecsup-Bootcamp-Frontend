@@ -1,5 +1,70 @@
 const form = document.querySelector("#form-register");
 
+const submitButton = document.querySelector("button")
+function disableSubmitButton(flag) {
+  if (flag) {
+    // submitButton.disabled = false
+    submitButton.disabled = false
+    submitButton.classList.remove("bg-purple-800/50", "cursor-no-drop")
+    submitButton.classList.add("bg-purple-800")
+    
+  } else {
+    submitButton.disabled = true
+    submitButton.classList.remove("bg-purple-800")
+    submitButton.classList.add("bg-purple-800/50", "cursor-no-drop")
+  }
+}
+// submitButton.disabled = true
+
+
+// function verifyAllInputs() {
+//   const submitButton = document.querySelector("#submit-button")
+//   submitButton.disabled = true
+
+//   const inputs = document.querySelectorAll("input");
+//   const values = {};
+
+//   for (const input of inputs) {
+//     values[input.name] = input.value;
+//     verifyIfEmptyInput(input)
+//   }
+
+//   // vamos a guardar los valores del objeto en un array y verificar si alguno esta vacio
+//   const inputValues = Object.values(values);
+//   const validacion = inputValues.find((value) => !value);
+//   if (typeof validacion !== "string") {
+//     // campos llenos
+//     submitButton.disabled = false
+//   }
+// }
+
+function verifyfAllInputsAreNotEmpty() {
+  console.log("verifyfAllInputsAreNotEmpty")
+  const inputs = document.querySelectorAll("input");
+  const values = {};
+
+  for (const input of inputs) {
+    values[input.name] = input.value;
+  }
+
+  /*
+  const inputValues = Object.values(values);
+  console.log(inputValues)
+  const validacion = inputValues.find((value) => !value);
+  if (typeof validacion === "string")
+    // alert("Completa todos los campos");
+    return false
+  return true
+  */
+ const validate = Object.values(inputValues).filter((value) => value).length === 4
+
+ const button = document.querySelector("button");
+
+ if (validate) {
+    button.classList.remove("bg-")
+ }
+}
+
 function verifyIfEmptyInput(element) {
   const ifPAfterInput = document.querySelector(`#${element.name}`) // back ticks
 
@@ -10,7 +75,6 @@ function verifyIfEmptyInput(element) {
     if (ifPAfterInput) ifPAfterInput.remove()
     // (!ifPAfterInput ?? defaultElement).remove()
     // ifPAfterInput?.remove();
-    
     ////////////////////////////////////////////////////////////////
   } else {
     if (element.dataset.validation !== "false") return 
@@ -27,12 +91,18 @@ function verifyIfEmptyInput(element) {
       element.after(p)
     }
   }
+  // verify if no inputs are empty
+  if (verifyfAllInputsAreNotEmpty())
+    disableSubmitButton(true)
+  else
+    disableSubmitButton(false)
 }
 
 form.onsubmit = function (event) {
   // Existe una funcion que nos permite evitar que el navegador
   // se recargue cuando es un formulario
   event.preventDefault();
+  console.log("submitted? ")
 
   const inputs = document.querySelectorAll("input");
   const values = {};
@@ -48,7 +118,7 @@ form.onsubmit = function (event) {
   const validacion = inputValues.find((value) => !value);
 
   if (typeof validacion === "string") {
-    alert("Completo todos los campos");
+    alert("Completa todos los campos");
     return;
   }
 };
