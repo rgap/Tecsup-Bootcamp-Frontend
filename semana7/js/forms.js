@@ -1,19 +1,7 @@
-const form = document.querySelector("#form-register");
 
-const submitButton = document.querySelector("button")
-function disableSubmitButton(flag) {
-  if (flag) {
-    // submitButton.disabled = false
-    submitButton.disabled = false
-    submitButton.classList.remove("bg-purple-800/50", "cursor-no-drop")
-    submitButton.classList.add("bg-purple-800")
-    
-  } else {
-    submitButton.disabled = true
-    submitButton.classList.remove("bg-purple-800")
-    submitButton.classList.add("bg-purple-800/50", "cursor-no-drop")
-  }
-}
+const form = document.querySelector("#form-register");
+const button = document.querySelector("button");
+
 // submitButton.disabled = true
 
 
@@ -38,34 +26,54 @@ function disableSubmitButton(flag) {
 //   }
 // }
 
-function verifyfAllInputsAreNotEmpty() {
-  console.log("verifyfAllInputsAreNotEmpty")
-  const inputs = document.querySelectorAll("input");
-  const values = {};
-
-  for (const input of inputs) {
-    values[input.name] = input.value;
+function setStyleToButton(validate) {
+  if (validate) {
+    // activar boton
+    button.classList.remove("bg-purple-800/50", "cursor-no-drop");
+    button.classList.add("bg-purple-800", "cursor-pointer");
+    button.removeAttribute("disabled");
+  } else {
+    // deshabilitar boton
+    button.classList.remove("bg-purple-800", "cursor-pointer");
+    button.classList.add("bg-purple-800/50", "cursor-no-drop");
+    button.setAttribute("disabled", true);
   }
+}
 
-  /*
-  const inputValues = Object.values(values);
-  console.log(inputValues)
-  const validacion = inputValues.find((value) => !value);
-  if (typeof validacion === "string")
-    // alert("Completa todos los campos");
-    return false
-  return true
-  */
- const validate = Object.values(inputValues).filter((value) => value).length === 4
+// function verifyIfAllInputsAreNotEmpty() {
+//   // traer todos los inputs
+//   const inputs = document.querySelectorAll("input");
+//   const inputValues = {};
 
- const button = document.querySelector("button");
+//   for (const input of inputs) {
+//     inputValues[input.name] = input.value;
+//   }
 
- if (validate) {
-    button.classList.remove("bg-")
- }
+//   // const validate =
+//   //   Object.values(inputValues).filter((value) => value).length === 4;
+//   const validate = Array.from(inputs)
+//           .map((input) => input.value)
+//           .filter((value) => value).length ===4
+
+//   setStyleButton(validate)
+// }
+
+function verifyIfAllInputsAreNotEmpty() {
+  // traer todos los inputs
+  const inputs = document.querySelectorAll("input");
+
+  const validate =
+    Array.from(inputs)
+      .map((input) => input.value)
+      .filter((value) => value).length === 4;
+
+  setStyleToButton(validate);
 }
 
 function verifyIfEmptyInput(element) {
+
+  verifyIfAllInputsAreNotEmpty()
+
   const ifPAfterInput = document.querySelector(`#${element.name}`) // back ticks
 
   if (element.value.length > 0) {
@@ -91,11 +99,6 @@ function verifyIfEmptyInput(element) {
       element.after(p)
     }
   }
-  // verify if no inputs are empty
-  if (verifyfAllInputsAreNotEmpty())
-    disableSubmitButton(true)
-  else
-    disableSubmitButton(false)
 }
 
 form.onsubmit = function (event) {
