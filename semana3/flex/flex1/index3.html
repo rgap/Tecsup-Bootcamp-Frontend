@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .flex-container {
+      display: flex;
+      border: 3px solid #711da4;
+    }
+    .flexbox-item {
+      width: 200px;
+      border: 3px solid #333;
+      background-color: #dfdfdf;
+    }
+    .flexbox-item-1 {
+      min-height: 100px;
+      flex-shrink: 0;
+    }
+    .flexbox-item-2 {
+      min-height: 200px;
+      flex-shrink: 1;
+    }
+    .flexbox-item-3 {
+      min-height: 300px;
+      flex-shrink: 1;
+    }
+  </style>
+  <body>
+    <h1>Titulo</h1>
+    <section class="flex-container">
+      <div class="flexbox-item flexbox-item-1">box 1</div>
+      <div class="flexbox-item flexbox-item-2">box 2</div>
+      <div class="flexbox-item flexbox-item-3">box 3</div>
+    </section>
+  </body>
+  <script>
+    window.addEventListener("resize", function () {
+      const flexContainer = document.querySelector(".flex-container");
+      const flexItems = document.querySelectorAll(".flexbox-item");
+
+      console.clear();
+      let totalShrinkage = 0;
+
+      flexItems.forEach((item, index) => {
+        // The original width of each item is 200px
+        const originalWidth = 200;
+        const currentWidth = item.clientWidth;
+        const shrinkage = originalWidth - currentWidth;
+
+        totalShrinkage += shrinkage;
+
+        console.log(`Box ${index + 1} shrunk by: ${shrinkage}px`);
+      });
+
+      console.log("Total shrinkage: " + totalShrinkage + "px");
+      console.log("");
+    });
+  </script>
+</html>
