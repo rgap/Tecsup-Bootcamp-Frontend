@@ -43,7 +43,7 @@ function verifyIfEmptyInput(element) {
     element.classList.remove("border", "border-red-500");
     if (ifPAfterInput) ifPAfterInput.remove();
   } else {
-    if (element.dataset.validation === "false") return;
+    // if (element.dataset.validation === "false") return;
 
     element.classList.add("border", "border-red-500");
 
@@ -70,13 +70,32 @@ form.onsubmit = function (event) {
     verifyIfEmptyInput(input);
   }
 
-  // vamos a guardar los valores del objeto en un array y verificar si alguno esta vacio
-  const inputValues = Object.values(values);
-
-  const validacion = inputValues.find((value) => !value);
-
-  if (typeof validacion === "string") {
-    alert("Completo todos los campos");
-    return;
+  // console.log(values["password"])
+  // console.log(values.password)
+  // clg
+  if (values.password !== values["verify-password"]) {
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "El password no coincide",
+    });
+    return
   }
+
+  Swal.fire({
+    icon: "success",
+    title: "Exitoso",
+    text: "Se registró correctamente",
+  });
 };
+
+
+  // vamos a guardar los valores del objeto en un array y verificar si alguno esta vacio
+  // const inputValues = Object.values(values);
+
+  // const validacion = inputValues.find((value) => !value);
+
+  // if (typeof validacion === "string") {
+  //   alert("Completo todos los campos");
+  //   return;
+  // }

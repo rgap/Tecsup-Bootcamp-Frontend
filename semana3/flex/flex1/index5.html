@@ -18,17 +18,21 @@
     }
     .flexbox-item-1 {
       min-height: 100px;
-      flex-shrink: 1;
+      flex-grow: 1;
+      order: 2;
       background-color: #ffb0b0;
     }
     .flexbox-item-2 {
       min-height: 200px;
-      flex-shrink: 3;
+      flex-grow: 3;
+      order: 1;
+      align-self: center;
       background-color: #83a9fb;
     }
     .flexbox-item-3 {
       min-height: 300px;
-      flex-shrink: 6;
+      flex-grow: 6;
+      order: 3;
       background-color: #83fbf1;
     }
   </style>
@@ -46,21 +50,21 @@
       const flexItems = document.querySelectorAll(".flexbox-item");
 
       console.clear();
-      let totalShrinkage = 0;
+      let totalSpace = 0;
 
       flexItems.forEach((item, index) => {
         // The original width of each item is 200px
         const originalWidth = 200;
         const currentWidth = item.clientWidth;
-        const shrinkage = originalWidth - currentWidth;
+        const space = currentWidth - originalWidth;
 
-        totalShrinkage += shrinkage;
+        totalSpace += space;
 
-        console.log(`Box ${index + 1} shrunk by: ${shrinkage}px`);
+        // console.log(`Box ${index + 1} grew by: ${space}px`);
         console.log(`Box ${index + 1} size: ${currentWidth}px`);
       });
 
-      console.log("Total shrinkage: " + totalShrinkage + "px");
+      console.log("Total available space: " + totalSpace + "px");
       console.log("");
     }
 
