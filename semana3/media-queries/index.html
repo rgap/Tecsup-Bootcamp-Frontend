@@ -5,8 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+    @media all {
+      h1 {
+        background-color: aquamarine;
+      }
+    }
+    @media screen, print {
+      h1 {
+        background-color: aquamarine;
+      }
+    }
+    @media print {
+      h1 {
+        color: brown;
+      }
+    }
+    @media screen {
+      h1 {
+        color: blueviolet;
+      }
+    }
+    @media (orientation: portrait) {
+      h1 {
+        text-decoration: underline;
+      }
+    }
+    @media (max-width: 1250px) {
+      h1 {
+        background-color: rgb(249, 183, 136);
+      }
+    }
+    /* ambiguous expression */
+    /* @media not all and (max-width: 600px) {
+      h1 {
+        background-color: rgb(47, 113, 194);
+      }
+    } */
+  </style>
   <body>
-    
-
+    <h1>Title</h1>
   </body>
 </html>
