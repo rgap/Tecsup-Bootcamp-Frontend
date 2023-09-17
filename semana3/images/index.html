@@ -1,14 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<style>
-
-</style>
-<body>
-    <img src="" alt="">
-</body>
+  </head>
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-around;
+    }
+    /* img1 */
+    #img1 {
+      border-radius: 100px;
+      width: 300px;
+    }
+    /* img2 */
+    #img2 {
+      border-radius: 100px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      width: 300px;
+    }
+    /* img3 */
+    .img3__container {
+      width: 80%;
+      background-color: white;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      width: 300px;
+    }
+    .img3__image {
+      width: 100%;
+      min-width: 300px;
+    }
+    .img3__description {
+      text-align: center;
+      padding: 10px 20px;
+    }
+    /* img4 */
+    #img4 {
+      opacity: 0.8;
+      filter: grayscale(100%);
+      width: 300px;
+    }
+  </style>
+  <body>
+    <main class="container">
+      <!-- border radius -->
+      <img
+        src="./images/drink-happy-thoughts-tote.jpg"
+        alt="Drink Happy Thoughts Tote"
+        id="img1"
+      />
+      <!-- border effect -->
+      <img
+        src="./images/drink-happy-thoughts-tote.jpg"
+        alt="Drink Happy Thoughts Tote"
+        id="img2"
+      />
+      <!-- card -->
+      <div class="img3__container">
+        <img
+          src="./images/drink-happy-thoughts-tote.jpg"
+          alt="Drink Happy Thoughts Tote"
+          class="img3__image"
+        />
+        <div class="img3__description">
+          <p>Northern Lights</p>
+        </div>
+      </div>
+      <!-- more effects -->
+      <img
+        src="./images/drink-happy-thoughts-tote.jpg"
+        alt="Drink Happy Thoughts Tote"
+        id="img4"
+      />
+    </main>
+  </body>
 </html>
