@@ -1,38 +1,38 @@
-    ////////////////////////////////////////////////////////////////
-    // ifPAfterInput.style.display = 'none'
-    // if (ifPAfterInput) ifPAfterInput.remove()
-    // (!ifPAfterInput ?? defaultElement).remove()
-    // ifPAfterInput?.remove();
-    ////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+// ifPAfterInput.style.display = 'none'
+// if (ifPAfterInput) ifPAfterInput.remove()
+// (!ifPAfterInput ?? defaultElement).remove()
+// ifPAfterInput?.remove();
+////////////////////////////////////////////////////////////////
 
-  const form = document.querySelector("#form-register");
-  const button = document.querySelector("button");
-  
-  function setStyleToButton(validate) {
-    if (validate) {
-      // activar boton
-      button.classList.remove("bg-purple-800/50", "cursor-no-drop");
-      button.classList.add("bg-purple-800", "cursor-pointer");
-      button.removeAttribute("disabled");
-    } else {
-      // deshabilitar boton
-      button.classList.remove("bg-purple-800", "cursor-pointer");
-      button.classList.add("bg-purple-800/50", "cursor-no-drop");
-      button.setAttribute("disabled", true);
-    }
+const form = document.querySelector("#form-register");
+const button = document.querySelector("button");
+
+function setStyleToButton(validate) {
+  if (validate) {
+    // activar boton
+    button.classList.remove("bg-purple-800/50", "cursor-no-drop");
+    button.classList.add("bg-purple-800", "cursor-pointer");
+    button.removeAttribute("disabled");
+  } else {
+    // deshabilitar boton
+    button.classList.remove("bg-purple-800", "cursor-pointer");
+    button.classList.add("bg-purple-800/50", "cursor-no-drop");
+    button.setAttribute("disabled", true);
   }
-  
-  function verifyIfAllInputsAreNotEmpty() {
-    // traer todos los inputs
-    const inputs = document.querySelectorAll("input");
-  
-    const validate =
-      Array.from(inputs)
-        .map((input) => input.value)
-        .filter((value) => value).length === 4;
-  
-    setStyleToButton(validate);
-  }
+}
+
+function verifyIfAllInputsAreNotEmpty() {
+  // traer todos los inputs
+  const inputs = document.querySelectorAll("input");
+
+  const validate =
+    Array.from(inputs)
+      .map((input) => input.value)
+      .filter((value) => value).length === 4;
+
+  setStyleToButton(validate);
+}
 
 function verifyIfEmptyInput(element) {
   verifyIfAllInputsAreNotEmpty();
@@ -79,7 +79,7 @@ form.onsubmit = function (event) {
       title: "Error",
       text: "El password no coincide",
     });
-    return
+    return;
   }
 
   Swal.fire({
@@ -89,13 +89,12 @@ form.onsubmit = function (event) {
   });
 };
 
+// vamos a guardar los valores del objeto en un array y verificar si alguno esta vacio
+// const inputValues = Object.values(values);
 
-  // vamos a guardar los valores del objeto en un array y verificar si alguno esta vacio
-  // const inputValues = Object.values(values);
+// const validacion = inputValues.find((value) => !value);
 
-  // const validacion = inputValues.find((value) => !value);
-
-  // if (typeof validacion === "string") {
-  //   alert("Completo todos los campos");
-  //   return;
-  // }
+// if (typeof validacion === "string") {
+//   alert("Completo todos los campos");
+//   return;
+// }
