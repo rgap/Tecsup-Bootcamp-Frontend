@@ -6,7 +6,7 @@ const urlMovieDetail = "https://moviesminidatabase.p.rapidapi.com/movie/id/";
 
 const options = {
   headers: {
-    "X-RapidAPI-Key": "69c1a35d03msh64e890b9f1b714ap16b9c6jsn52d9cfd4b46c",
+    "X-RapidAPI-Key": "f0ea30780emsh5ed2b3d8a88768dp1857a5jsn205180fdca1e",
     "X-RapidAPI-Host": "moviesminidatabase.p.rapidapi.com",
   },
 };
@@ -55,7 +55,7 @@ export async function getGenreByURL() {
 
   const containerMovies = document.querySelector("#grid-movies");
 
-  data.results.forEach(async (movie) => {
+  data.results.slice(0, 6).forEach(async (movie) => {
     // insertar la informacion en el HTML
     const movieData = await renderMovie(movie);
     containerMovies.innerHTML += movieData;
