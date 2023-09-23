@@ -44,7 +44,7 @@ export async function getGenres(element) {
   //   });
 
   data.results.forEach(
-    ({ genre }) => (element.innerHTML += renderItemList(item.genre))
+    ({ genre }) => (element.innerHTML += renderItemList(genre))
   );
 }
 
