@@ -6,31 +6,50 @@ const urlMovieDetail = "https://moviesminidatabase.p.rapidapi.com/movie/id/";
 
 const options = {
   headers: {
-    "X-RapidAPI-Key": "f0ea30780emsh5ed2b3d8a88768dp1857a5jsn205180fdca1e",
+    "X-RapidAPI-Key": "8103e65f91mshdcca4457e4ce1d6p1e36a0jsn81cc350aecdc",
     "X-RapidAPI-Host": "moviesminidatabase.p.rapidapi.com",
   },
 };
 
+function getTextGenreByURL() {
+  return location.search.split("=")[1];
+}
+
 function renderItemList(genre) {
+  const genreFromURL = getTextGenreByURL();
+
+  const classToElement =
+    genreFromURL === genre
+      ? "text-blue-800 font-semibold"
+      : "hover:text-blue-800 hover:font-semibold";
+
   return `
-    <p class="my-2 hover:text-blue-800 hover:font-semibold">
+    <p class="my-2 ${classToElement}">
       <a href="?genre=${genre}" class="cursor-pointer">${genre}</a>
     </p>
   `;
 }
 
-export async function getGenres(element) {
-  const response = await fetch(urlGenres, options);
-  const data = await response.json();
+async function fetchData(url) {
+  //   const response = await fetch(url, options);
+  //   return await response.json();
+  return await (await fetch(url, options)).json();
+}
 
-  data.results.forEach((item) => {
-    element.innerHTML += renderItemList(item.genre);
-  });
+export async function getGenres(element) {
+  const data = await fetchData(urlGenres);
+
+  //   data.results.forEach((item) => {
+  //     element.innerHTML += renderItemList(item.genre);
+  //   });
+
+  data.results.forEach(
+    ({ genre }) => (element.innerHTML += renderItemList(item.genre))
+  );
 }
 
 async function renderMovie(movie) {
-  const response = await fetch(`${urlMovieDetail}${movie.imdb_id}`, options);
-  const data = await response.json();
+  const data = await fetchData(`${urlMovieDetail}${movie.imdb_id}`);
   const movieData = data.results;
 
   return `
@@ -43,16 +62,14 @@ async function renderMovie(movie) {
 }
 
 export async function getGenreByURL() {
-  const genre = location.search.split("=")[1];
+  const genre = getTextGenreByURL();
 
   // caso1: si hay un error
   if (!genre) return;
 
   // caso2: cuando no hay error (hacemos la busqueda)
   // https://moviesminidatabase.p.rapidapi.com/movie/byGen/genre
-  const response = await fetch(`${urlMoviesByGenre}${genre}`, options);
-  const data = await response.json();
-
+  const data = await fetchData(`${urlMoviesByGenre}${genre}`);
   const containerMovies = document.querySelector("#grid-movies");
 
   data.results.slice(0, 6).forEach(async (movie) => {
