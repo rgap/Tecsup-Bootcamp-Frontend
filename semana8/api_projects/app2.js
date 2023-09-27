@@ -12,13 +12,13 @@ function fetchCategories() {
     });
 }
 
-async function fetchCategories() {
-  const response = await fetch(urlCategories); // returns a RESPONSE?
+// async function fetchCategories() {
+//   const response = await fetch(urlCategories); // returns a RESPONSE?
 
-  const data = await response.json(); // returns an object
+//   const data = await response.json(); // returns an object
 
-  console.log(data);
-}
+//   console.log(data);
+// }
 
 async function fetchProducts() {
   const response = await fetch(urlProducts); // returns a RESPONSE?
