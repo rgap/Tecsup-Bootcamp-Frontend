@@ -1,26 +1,26 @@
 // alert('Hola G15!')
 // console.log('Hola G15!')
 
-// const url = "https://dummyjson.com/products";
+const url = "https://dummyjson.com/products";
 
 // function fetchProducts() {
-//   const response = fetch(url);
+//   const response = fetch(url); // returns a PROMISE
 
 //   console.log(response);
 // }
 
 // async function fetchProducts() {
-//   const response = await fetch(url); // returns a RESPONSE?
+//   const response = await fetch(url); // returns a RESPONSE object
 
-//   const data = response.json(); // returns a promise
+//   const data = response.json(); // returns a PROMISE
 
 //   console.log(data);
 // }
 
 async function fetchProducts() {
-  const response = await fetch(url); // returns a RESPONSE?
+  const response = await fetch(url);
 
-  const data = await response.json(); // returns an object
+  const data = await response.json();
 
   console.log(data);
 }
