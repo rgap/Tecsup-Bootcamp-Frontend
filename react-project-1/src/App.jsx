@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Footer, Header } from "./components";
+import { Counter, Footer, Header } from "./components";
 
 export default function App() {
 
@@ -14,8 +14,10 @@ export default function App() {
   return (
     <>
       <Header />
-      <h1>Mi primer componente {name}</h1>
+      <h1 className="bg-[#04f]">Mi primer componente {name}</h1>
       <button onClick={changeName}>Cambiar nombre</button>
+      <hr/>
+      <Counter/>
       <Footer />
     </>
   );
