@@ -32,42 +32,12 @@ export default function App() {
     },
   ]);
 
-  const [customValue, setCustomValue] = useState("");
   const [inputBill, setInputBill] = useState("");
-  const [inputPeople, setInputPeople] = useState("");
-  const [valuePercetange, setValuePercetange] = useState(0);
+  const [customValue, setCustomValue] = useState("");
+  const [inputPeople, setInputPeple] = useState("");
+  const [valuePercentage, setValuePercentage] = useState(0);
 
-  // const handleInputBillOnChange = (event) => {
-  //   setInputBill(event.target.value);
-  // };
-  // const handleInputPeopleOnChange = (event) => {
-  //   setInputPeople(event.target.value);
-  // };
-
-  // const handlePercetangeActive = (value) => {
-  //   const item = percentages.map((percentage) => {
-  //     return {
-  //       isActive: value && !percentage.isActive && percentage.value === value,
-  //       value: percentage.value,
-  //     };
-  //   });
-  //   setPercetanges(item);
-  //   setCustomValue("");
-  // };
-
-  // const handleInputOnChange = (event) => {
-  //   const item = percentages.map((percentage) => {
-  //     return {
-  //       isActive: false,
-  //       value: percentage.value,
-  //     };
-  //   });
-  //   setPercetanges(item);
-
-  //   setCustomValue(event.target.value);
-  // };
-
-  const handleMapPercentage = (value) => {
+  const handleMapPercetange = (value) => {
     return percentages.map((percentage) => {
       return {
         isActive: value && !percentage.isActive && percentage.value === value,
@@ -76,36 +46,33 @@ export default function App() {
     });
   };
 
-  const handlePercetangeActive = (value) => {
-    setPercetanges(handleMapPercentage(value));
+  const handlePercatangeActive = (value) => {
+    setPercetanges(handleMapPercetange(value));
     setCustomValue("");
-    setValuePercetange(Number(value.replace("%", "")));
-    // console.log(Number(value.replace("%", "")));
+    setValuePercentage(Number(value.replace("%", "")));
   };
 
   const handleInputOnChange = (event) => {
-    setPercetanges(handleMapPercentage());
+    setPercetanges(handleMapPercetange());
     setCustomValue(event.target.value);
-    setValuePercetange(Number(event.target.value));
+    setValuePercentage(Number(event.target.value));
   };
 
-  const handleInputBillOnChange = (event) => setInputBill(event.target.value);
+  const handleInputBillChange = (event) => setInputBill(event.target.value);
 
-  const handleInputPeopleOnChange = (event) => {
-    if (!valuePercetange || !inputBill) {
-      alert("Debes completar los valores para el calculo");
+  const handleInputPeopleChange = (event) => {
+    if (!valuePercentage || !inputBill) {
+      alert("Debe completar los valores para el calculo");
       return;
     }
 
     const inputPeople = event.target.value;
-    setInputPeople(inputPeople);
-
-    // calculos
+    setInputPeple(inputPeople);
     const bill = Number(inputBill);
 
-    const totalTipPerPerson = (bill * valuePercetange) / Number(inputPeople);
-    console.log(totalTipPerPerson);
-    const totalPerPerson = bill / Number(inputPeople) + totalTipPerPerson;
+    const totalTip = (bill * (valuePercentage / 100)) / Number(inputPeople);
+    console.log(totalTip);
+    const totalPerPerson = bill / Number(inputPeople) + totalTip;
     console.log(totalPerPerson);
   };
 
@@ -119,7 +86,7 @@ export default function App() {
           placeholder="0.0"
           name="input-dollar"
           value={inputBill}
-          onChange={handleInputBillOnChange}
+          onChange={handleInputBillChange}
         />
         <Title text="Select Tip %" />
         <div className="grid grid-cols-2 gap-3 mt-3">
@@ -128,7 +95,7 @@ export default function App() {
               key={percentage.value}
               value={percentage.value}
               isActive={percentage.isActive}
-              onElementClick={handlePercetangeActive}
+              onElementClick={handlePercatangeActive}
             />
           ))}
           <TextField
@@ -144,7 +111,7 @@ export default function App() {
           placeholder="0"
           name="input-people"
           value={inputPeople}
-          onChange={handleInputPeopleOnChange}
+          onChange={handleInputPeopleChange}
         />
         <Summary />
       </Card>
@@ -170,3 +137,33 @@ export default function App() {
           <ItemPercentage value="15%" />
           <ItemPercentage value="25%" />
           <ItemPercentage value="50%" /> */
+
+// const handleInputBillOnChange = (event) => {
+//   setInputBill(event.target.value);
+// };
+// const handleInputPeopleOnChange = (event) => {
+//   setInputPeople(event.target.value);
+// };
+
+// const handlePercetangeActive = (value) => {
+//   const item = percentages.map((percentage) => {
+//     return {
+//       isActive: value && !percentage.isActive && percentage.value === value,
+//       value: percentage.value,
+//     };
+//   });
+//   setPercetanges(item);
+//   setCustomValue("");
+// };
+
+// const handleInputOnChange = (event) => {
+//   const item = percentages.map((percentage) => {
+//     return {
+//       isActive: false,
+//       value: percentage.value,
+//     };
+//   });
+//   setPercetanges(item);
+
+//   setCustomValue(event.target.value);
+// };
