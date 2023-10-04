@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-around;
+    }
+    @media (max-width: 499px) {
+      video {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 500px) and (max-width: 799px) {
+      video {
+        width: 70%;
+      }
+    }
+
+    @media (min-width: 800px) {
+      video {
+        width: 50%;
+      }
+    }
+  </style>
+  <body>
+    <main class="container">
+      <video controls>
+        <source src="./videos/large.mp4" data-media="(min-width: 800px)" />
+        <source src="./videos/small.mp4" />
+      </video>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var video = document.querySelector("video");
+        var sources = video.querySelectorAll("source");
+
+        for (var i = 0; i < sources.length; i++) {
+          var source = sources[i];
+          var media = source.getAttribute("data-media");
+
+          // If there's no media query or if the media query matches the current screen size
+          if (!media || window.matchMedia(media).matches) {
+            video.src = source.src;
+            video.load(); // This is necessary because we've manipulated the sources after the page load
+            break;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
