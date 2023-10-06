@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .image__grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      /* border: solid; */
+    }
+    .image__grid img {
+      width: 400px;
+      margin: 5px;
+    }
+    /* .image__grid__section {
+      display: flex;
+      flex-direction: row;
+    } */
+  </style>
+  <body>
+    <main class="image__grid">
+      <section class="image__grid__section">
+        <div>
+          <img
+            src="https://cdn.jsdelivr.net/gh/rgap/fullstack-bootcamp@main/semana3/cdn/images/im1.jpeg"
+            alt=""
+          />
+        </div>
+        <div>
+          <img
+            src="https://cdn.jsdelivr.net/gh/rgap/fullstack-bootcamp@main/semana3/cdn/images/im2.jpeg"
+            alt=""
+          />
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
