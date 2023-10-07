@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from "../pages";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Layout } from "../components";
+import { Detail, Home } from "../pages";
 
 export default function Router() {
   return (
@@ -8,7 +8,7 @@ export default function Router() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/detalle" element={<h1>Login desde el router</h1>} />
+          <Route path="/detalle/:titleId" element={<Detail />} />
         </Route>
       </Routes>
     </BrowserRouter>
