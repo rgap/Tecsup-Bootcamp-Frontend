@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { DetailListDescription } from "../../components";
 
 export default function Detail() {
@@ -10,8 +10,6 @@ export default function Detail() {
       (title) => title.jawSummary.id === Number(titleId)
     )
   );
-
-  console.log(title);
 
   return (
     <>
@@ -37,16 +35,15 @@ export default function Detail() {
                 {title.jawSummary.maturity.rating.specificRatingReason}
               </span>
             </p>
-            <h2 className="font-semibold text-2xl my-4">T:E1 Secretos</h2>
+            <h2 className="font-semibold text-2xl my-4">
+              {title.jawSummary.title}
+            </h2>
             <p className="text-sm">
               {title.jawSummary.currentContextualSynopsis.text}
             </p>
           </div>
           <div className="flex flex-col gap-4 w-[30%]">
-            <DetailListDescription
-              title="Cast"
-              list={title.jawSummary.cast}
-            />
+            <DetailListDescription title="Cast" list={title.jawSummary.cast} />
             <DetailListDescription
               title="Genres"
               list={title.jawSummary.genres}
