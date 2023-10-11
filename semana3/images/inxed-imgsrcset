@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-around;
+    }
+  </style>
+  <body>
+    <main class="container">
+      <picture>
+        <!-- For browsers wider than 1200px -->
+        <source media="(min-width: 1200px)" srcset="./images/image-large.jpg" />
+        <!-- For browsers wider than 800px but smaller than 1200px -->
+        <source media="(min-width: 800px)" srcset="./images/image-medium.jpg" />
+        <!-- Default image for browsers smaller than 800px -->
+        <img src="./images/image-small.jpg" alt="Description of Image" />
+      </picture>
+    </main>
+  </body>
+</html>

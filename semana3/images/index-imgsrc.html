@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
+    <!-- Setting the viewport to ensure responsive behavior on devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  </head>
-  <style>
-    .container {
-      display: flex;
-      justify-content: space-around;
-    }
-  </style>
-  <body>
+    <style>
+        /* Flex container to center the image */
+        .container {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
     <main class="container">
-      <picture>
-        <!-- For browsers wider than 1200px -->
-        <source media="(min-width: 1200px)" srcset="./images/image-large.jpg" />
-        <!-- For browsers wider than 800px but smaller than 1200px -->
-        <source media="(min-width: 800px)" srcset="./images/image-medium.jpg" />
-        <!-- Default image for browsers smaller than 800px -->
-        <img src="./images/image-small.jpg" alt="Description of Image" />
-      </picture>
+        <!-- SRCSET defines the set of images the browser can choose from based on device conditions -->
+        <!-- Image intended for screens up to 800 pixels wide -->
+        <!-- Image intended for screens up to 1200 pixels wide -->
+        <!-- Image intended for screens wider than 1200 pixels -->
+
+        <!-- SIZES attribute tells the browser how wide the image will be displayed based on different viewport widths -->
+        <!-- For viewports up to 800 pixels wide, use images up to 800w -->
+        <!-- For viewports between 801 and 1200 pixels wide, use images up to 1200w -->
+        <!-- For viewports wider than 1200 pixels, the image will be displayed at 1600 pixels -->
+
+        <!-- SRC attribute is the default image for browsers that don't support srcset -->
+        <img 
+            srcset="
+                    ./images/image-small.jpg 800w,   
+                    ./images/image-medium.jpg 1200w,  
+                    ./images/image-large.jpg 1600w    
+            "
+            sizes="
+                    (max-width: 800px) 800px,     
+                    (max-width: 1200px) 1200px,   
+                    1600px                       
+            "
+            src="./images/image-small.jpg"
+            alt="Description of Image"
+        />
     </main>
-  </body>
+</body>
 </html>
