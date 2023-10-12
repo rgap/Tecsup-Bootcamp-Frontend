@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 
-export default function Layout() {
+export default function MainLayout() {
   return (
     <div>
       {/* Header content, which can include site logo, navigation links, etc. */}

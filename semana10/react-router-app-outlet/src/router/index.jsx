@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Layout from "../layouts/MainLayout/index.jsx";
+import MainLayout from "../layouts/MainLayout/index.jsx";
 import About from "../pages/About.jsx";
 import Home from "../pages/Home.jsx";
 
@@ -14,7 +14,7 @@ export default function AppRouter() {
       {/* The `Routes` component is a wrapper for one or more `Route` components. */}
       <Routes>
         {/* Route definitions */}
-        <Route element={<Layout />}>
+        <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
         </Route>
