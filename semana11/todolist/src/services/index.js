@@ -7,6 +7,9 @@ export async function create(body) {
   //   const response = await fetch(URLApi, { method: "POST", body: body });
   const response = await fetch(URLApi, {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json", // required header
+    },
     body: JSON.stringify(body),
   });
 
