@@ -26,6 +26,8 @@ export default function FormTask({ getTasks }) {
     await create({
       text: textTask,
       status: "created",
+      category: null,
+      priority: null,
     });
 
     setTextTask("");
@@ -44,7 +46,7 @@ export default function FormTask({ getTasks }) {
       <h2 className="font-semibold text-xl mt-3">Crear tu tarea</h2>
       <form className="my-5 flex items-center" onSubmit={handleFormSubmit}>
         <TextField value={textTask} onChange={handleInputChange} />
-        <Button text="Crear" variant="secondary" />
+        <Button type="submit" text="Crear" variant="secondary" />
       </form>
     </>
   );

@@ -2,19 +2,43 @@
 import { Dialog } from "@headlessui/react";
 import { PencilIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
+import Swal from "sweetalert2";
 import { Button, Select, TextField } from "../../components";
+import { update } from "../../services";
 
 const categories = ["Hogar", "Trabajo", "Estudio", "Ocio"];
-const priorities = ["Baja", "Media", "Alto", "Urgente"];
+const priorities = ["Baja", "Media", "Alta", "Urgente"];
 
-export default function Edit({ task }) {
+export default function Edit({ task, getTasks }) {
   const [open, setOpen] = useState(false);
 
   const [text, setText] = useState(task.text);
-  const [category, setCategory] = useState(categories[0]);
-  const [priority, setPriority] = useState(priorities[0]);
+  // if it is null then categories[0]
+  const [category, setCategory] = useState(task.category ?? categories[0]);
+  const [priority, setPriority] = useState(task.priority ?? priorities[0]);
 
   const handleChange = (e) => setText(e.target.value);
+
+  const handleEditSubmit = async (e) => {
+    e.preventDefault();
+
+    await update(task.id, {
+      text,
+      category,
+      priority,
+    });
+
+    //alert
+    Swal.fire({
+      title: "Success",
+      icon: "success",
+      text: "Se actualizo correctamente ",
+    });
+
+    setOpen(false);
+
+    await getTasks();
+  };
 
   return (
     <>
@@ -31,7 +55,7 @@ export default function Edit({ task }) {
         <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
           <Dialog.Panel className="bg-white mx-auto w-full md:max-w-md rounded p-4">
             <Dialog.Title>Editar tarea: {task.text}</Dialog.Title>
-            <form className="my-5">
+            <form className="my-5" onSubmit={handleEditSubmit}>
               <TextField
                 value={text}
                 onChange={handleChange}
@@ -54,6 +78,7 @@ export default function Edit({ task }) {
               </div>
               <div className="mt-5">
                 <Button
+                  type="submit"
                   text="Actualizar"
                   className="rounded-l w-full text-lg font-semibold"
                 />

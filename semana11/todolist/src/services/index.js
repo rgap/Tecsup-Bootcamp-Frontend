@@ -3,6 +3,7 @@
 
 const URLApi = "https://65273bf0917d673fd76d82bc.mockapi.io/tasks";
 
+// C
 export async function create(body) {
   //   const response = await fetch(URLApi, { method: "POST", body: body });
   const response = await fetch(URLApi, {
@@ -17,12 +18,24 @@ export async function create(body) {
   return data;
 }
 
+// R
 export async function read() {
   const response = await fetch(URLApi);
   const data = await response.json();
   return data;
 }
 
-export async function update(body) {
-  
+// U
+export async function update(id, body) {
+  const response = await fetch(`${URLApi}/${id}`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "PUT",
+    body: JSON.stringify(body),
+  });
+  const data = await response.json();
+  return data;
 }
+
+// D
