@@ -22,3 +22,7 @@ export async function read() {
   const data = await response.json();
   return data;
 }
+
+export async function update(body) {
+  
+}
