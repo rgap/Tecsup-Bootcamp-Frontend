@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toast Notification</title>
+    <style>
+      .toast {
+        visibility: hidden;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333;
+        color: #fff;
+        padding: 16px;
+        border-radius: 4px;
+        z-index: 1000;
+        transition: visibility 0.5s, opacity 0.5s;
+      }
+
+      .toast.show {
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    A small, non-intrusive notification that appears on the screen to provide
+    feedback or information. They often disappear on their own after a few
+    seconds.
+    <button onclick="showToast()">Show Toast</button>
+    <div class="toast">This is a toast notification!</div>
+
+    <script>
+      function showToast() {
+        const toast = document.querySelector(".toast");
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>

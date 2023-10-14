@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tooltip</title>
+    <style>
+      .tooltip-container {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        margin: 50px;
+      }
+
+      .tooltip {
+        display: none;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px;
+        border: 1px solid #aaa;
+        background-color: #fff;
+        z-index: 10;
+        margin-bottom: 5px;
+      }
+
+      .tooltip-container:hover .tooltip {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    Small floating box that appears when the user hovers over or clicks on an
+    element.
+    <div class="tooltip-container">
+      Hover over me
+      <div class="tooltip">I am a tooltip!</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Non-Modal Dialog</title>
+    <style>
+      .non-modal-dialog {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #aaa;
+        z-index: 30;
+        display: none; /* Initially hidden */
+      }
+
+      .show-btn {
+        margin-top: 10px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    dialog that does not restrict interaction with the background content. Users
+    can freely move between the dialog and the main content.
+    <!-- Button for showing the dialog -->
+    <button class="show-btn" onclick="showDialog()">Show Dialog</button>
+
+    <div class="non-modal-dialog">
+      I am a non-modal dialog.
+      <button onclick="closeDialog()">Close</button>
+    </div>
+
+    <script>
+      function showDialog() {
+        document.querySelector(".non-modal-dialog").style.display = "block";
+      }
+
+      function closeDialog() {
+        document.querySelector(".non-modal-dialog").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

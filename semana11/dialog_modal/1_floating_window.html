@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Floating Window</title>
+    <style>
+      .floating-window {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 300px;
+        min-height: 200px;
+        background-color: #fff;
+        border: 1px solid #aaa;
+        z-index: 10;
+        resize: both;
+        overflow: auto;
+      }
+
+      .title-bar {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        cursor: move;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .close-btn {
+        background-color: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+
+      .content {
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    UI element that appears above the main content and can be moved around the
+    screen. In web contexts, it's a less commonly used.
+    <div class="floating-window" id="floatWin">
+      <div class="title-bar" id="titleBar">
+        Floating Window
+        <button class="close-btn" onclick="closeWindow()">X</button>
+      </div>
+      <div class="content">
+        This is the content of the floating window. You can drag the title bar
+        to move the window. Use the edges to resize it.
+      </div>
+    </div>
+
+    <script>
+      var dragElement = document.getElementById("floatWin");
+
+      var pos1 = 0,
+        pos2 = 0,
+        pos3 = 0,
+        pos4 = 0;
+      document.getElementById("titleBar").onmousedown = dragMouseDown;
+
+      function dragMouseDown(e) {
+        e = e || window.event;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDrag;
+        document.onmousemove = elementDrag;
+      }
+
+      function elementDrag(e) {
+        e = e || window.event;
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        dragElement.style.top = dragElement.offsetTop - pos2 + "px";
+        dragElement.style.left = dragElement.offsetLeft - pos1 + "px";
+      }
+
+      function closeDrag() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+      }
+
+      function closeWindow() {
+        dragElement.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
