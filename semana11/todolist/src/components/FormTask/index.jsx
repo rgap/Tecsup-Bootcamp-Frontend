@@ -1,15 +1,13 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import Swal from "sweetalert2";
-import { TextField } from "../../components";
+import { Button, TextField } from "../../components";
 import { create } from "../../services";
 
-/* eslint-disable react/prop-types */
 export default function FormTask({ getTasks }) {
   const [textTask, setTextTask] = useState("");
 
-  const handleInputChange = (e) => {
-    setTextTask(e.target.value);
-  };
+  const handleInputChange = (e) => setTextTask(e.target.value);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -19,22 +17,22 @@ export default function FormTask({ getTasks }) {
         title: "Error",
         text: "Completa el campo",
         icon: "error",
-        // confirmButtonColor: "#f01",
       });
+
       return;
     }
 
-    const response = await create({
+    // llamo a la funcion create
+    await create({
       text: textTask,
       status: "created",
     });
-    // console.log(response);
 
     setTextTask("");
 
     Swal.fire({
       title: "Success",
-      text: "Se creó la tarea correctamente",
+      text: "Se creo la tarea correctamente",
       icon: "success",
     });
 
@@ -46,10 +44,7 @@ export default function FormTask({ getTasks }) {
       <h2 className="font-semibold text-xl mt-3">Crear tu tarea</h2>
       <form className="my-5 flex items-center" onSubmit={handleFormSubmit}>
         <TextField value={textTask} onChange={handleInputChange} />
-
-        <button className="bg-green-400 px-2 py-3 rounded-r text-white border border-green-400">
-          Crear
-        </button>
+        <Button text="Crear" variant="secondary" />
       </form>
     </>
   );
