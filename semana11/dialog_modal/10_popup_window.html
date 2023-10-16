@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popup Window Example</title>
+    <style>
+      .show-btn {
+        margin-top: 10px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      Secondary window that appears in front of the main browser window or
+      application interface.
+    </div>
+    <!-- Button for opening the popup window -->
+    <button onclick="openPopup()" class="show-btn">Open Popup Window</button>
+
+    <script>
+      let popupWindow = null;
+
+      function openPopup() {
+        // Check if the popup window is already open
+        if (popupWindow === null || popupWindow.closed) {
+          // Open a new popup window
+          popupWindow = window.open(
+            "https://www.example.com", // Replace with the URL you want to open
+            "PopupWindow",
+            "width=800,height=600"
+          );
+        } else {
+          // If the popup window is already open, focus on it
+          popupWindow.focus();
+        }
+      }
+    </script>
+  </body>
+</html>

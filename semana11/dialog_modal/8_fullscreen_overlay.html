@@ -20,13 +20,21 @@
         align-items: center;
         justify-content: center;
       }
+      .show-btn {
+        margin-top: 10px;
+        display: block;
+      }
     </style>
   </head>
   <body>
-    Covers the entire viewport, usually with options or menus. It's a more
-    immersive form of a modal, ensuring the user's attention is entirely on the
-    overlay content.
-    <button onclick="showOverlay()">Toggle Fullscreen Overlay</button>
+    <div>
+      Covers the entire viewport, usually with options or menus. It's a more
+      immersive form of a modal, ensuring the user's attention is entirely on
+      the overlay content.
+    </div>
+    <button onclick="showOverlay()" class="show-btn">
+      Toggle Fullscreen Overlay
+    </button>
 
     <div class="overlay" onclick="hideOverlay()">
       This is a fullscreen overlay. Click to close.

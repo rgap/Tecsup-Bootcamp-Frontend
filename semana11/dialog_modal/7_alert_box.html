@@ -27,13 +27,19 @@
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 99;
       }
+      .show-btn {
+        margin-top: 10px;
+        display: block;
+      }
     </style>
   </head>
   <body>
-    A small window that informs the user about something important. Similar to a
-    modal but typically smaller and more focused on conveying a single piece of
-    information or warning.
-    <button onclick="showAlert()">Show Alert</button>
+    <div>
+      A small window that informs the user about something important. Similar to
+      a modal but typically smaller and more focused on conveying a single piece
+      of information or warning.
+    </div>
+    <button onclick="showAlert()" class="show-btn">Show Alert</button>
 
     <div class="overlay" onclick="hideAlert()"></div>
     <div class="alert-box">
