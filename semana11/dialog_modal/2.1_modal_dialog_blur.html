@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal with Blur using BEM</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        z-index: 2;
+        width: 400px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .modal__backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(5px);
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+
+      .modal__close-button {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+      }
+
+      .show-button {
+        margin-top: 10px;
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      Dialog that appears on top of the main content and restricts interaction
+      with that main content until the dialog is closed. This term is equivalent
+      to "modal" in many web contexts.
+    </div>
+
+    <button class="show-button" onclick="showModal()">Show Modal</button>
+    <div class="modal__backdrop" onclick="closeModal()"></div>
+    <div class="modal">
+      <svg
+        class="modal__close-button"
+        onclick="closeModal()"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M18.3 5.71a.996.996 0 00-1.41 0L12 10.59 7.11 5.7A.996.996 0 105.7 7.11L10.59 12 5.7 16.89a.996.996 0 101.41 1.41L12 13.41l4.89 4.89a.996.996 0 101.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+        />
+      </svg>
+      <h2 class="modal__title">Modal Title</h2>
+      <p class="modal__content">
+        This is a modal content. The background is blurred when the modal is
+        open.
+      </p>
+    </div>
+
+    <script>
+      function showModal() {
+        document.querySelector(".modal").style.display = "block";
+        document.querySelector(".modal__backdrop").style.display = "block";
+      }
+
+      function closeModal() {
+        document.querySelector(".modal").style.display = "none";
+        document.querySelector(".modal__backdrop").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
