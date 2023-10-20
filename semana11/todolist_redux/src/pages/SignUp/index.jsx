@@ -4,7 +4,12 @@ import { inputs } from "./form";
 
 export default function SignUp() {
   const { errors, values, handleInputChange, validateIfValuesHasEmpty } =
-    useForm();
+    useForm({
+      name: "",
+      lastname: "",
+      email: "",
+      password: "",
+    });
 
   const handleFormSubmit = (event) => {
     event.preventDefault();

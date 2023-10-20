@@ -1,20 +1,10 @@
 // Custom hook. this constains all the logic
 import { useState } from "react";
 
-export function useForm() {
-  const [values, setValues] = useState({
-    name: "",
-    lastname: "",
-    email: "",
-    password: "",
-  });
+export function useForm(inputs) {
+  const [values, setValues] = useState(inputs);
 
-  const [errors, setErrors] = useState({
-    name: "",
-    lastname: "",
-    email: "",
-    password: "",
-  });
+  const [errors, setErrors] = useState(inputs);
 
   const handleInputChange = (event) => {
     setValues({
