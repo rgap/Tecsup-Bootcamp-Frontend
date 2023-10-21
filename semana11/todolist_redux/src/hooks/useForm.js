@@ -2,6 +2,7 @@
 import { useState } from "react";
 
 export function useForm(inputs) {
+  // inputs seria una variable ya no un prop
   const [values, setValues] = useState(inputs);
 
   const [errors, setErrors] = useState(inputs);

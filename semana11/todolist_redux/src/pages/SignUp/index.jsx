@@ -1,5 +1,9 @@
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Card, Form } from "../../components";
 import { useForm } from "../../hooks/useForm";
+import { create } from "../../services";
+import { saveUser } from "../../slices/userSlice";
 import { inputs } from "./form";
 
 export default function SignUp() {
@@ -11,9 +15,15 @@ export default function SignUp() {
       password: "",
     });
 
-  const handleFormSubmit = (event) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     validateIfValuesHasEmpty();
+    const user = await create(values, "users");
+    dispatch(saveUser(user));
+    navigate("/");
   };
 
   return (
