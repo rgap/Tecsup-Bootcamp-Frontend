@@ -1,6 +1,9 @@
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Card, Form } from "../../components";
 import { useForm } from "../../hooks/useForm";
-// import { create } from "../../services";
+import { saveUser } from "../../slices/userSlice";
+import { findUser, showError } from "../../utils";
 import { inputs } from "./form";
 
 export default function SignIn() {
@@ -10,10 +13,22 @@ export default function SignIn() {
       password: "",
     });
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    validateIfValuesHasEmpty();
-    // await create(values, "users");
+    if (!validateIfValuesHasEmpty()) return;
+
+    const user = await findUser("email", values.email);
+
+    if (!user || user.password !== values.password) {
+      showError("Email y/o password incorrecto");
+      return;
+    }
+
+    dispatch(saveUser(user));
+    navigate("/");
   };
 
   return (

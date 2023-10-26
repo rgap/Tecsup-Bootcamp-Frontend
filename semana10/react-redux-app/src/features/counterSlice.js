@@ -16,6 +16,10 @@ export const counterSlice = createSlice({
   // An object containing Redux "reducer" functions.
   // A reducer is a function that determines changes to an application's state.
   reducers: {
+    // Set value to the initial state
+    initialize: (state) => {
+      state.value = 10;
+    },
     // The "increment" reducer. When dispatched, it will increase the state value by 1.
     increment: (state) => {
       state.value += 1;
@@ -30,7 +34,7 @@ export const counterSlice = createSlice({
 
 // Export the generated action creators for use in UI components.
 // These can be dispatched to modify the state.
-export const { increment, decrement } = counterSlice.actions;
+export const { initialize, increment, decrement } = counterSlice.actions;
 /*
 In Redux Toolkit, when you create a slice using createSlice(),
 it automatically generates action creators for each function you

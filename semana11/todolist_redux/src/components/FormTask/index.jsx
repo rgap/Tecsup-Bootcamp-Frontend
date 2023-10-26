@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { Button, TextField } from "../../components";
+import { selectorUserId } from "../../selectors/userSelector";
 import { create } from "../../services/index";
 
 export default function FormTask({ getTasks }) {
+  const userId = useSelector(selectorUserId);
   const [textTask, setTextTask] = useState("");
 
   const handleInputChange = (e) => setTextTask(e.target.value);
@@ -29,6 +32,7 @@ export default function FormTask({ getTasks }) {
         status: "created",
         category: null,
         priority: null,
+        user_id: userId,
       },
       "tasks"
     );

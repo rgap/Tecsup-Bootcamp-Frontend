@@ -4,7 +4,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
 // Import the action creators and selector from the counter slice.
-import { decrement, increment, selectCount } from "./counterSlice";
+import { decrement, increment, initialize, selectCount } from "./counterSlice";
 
 // Define the Counter component.
 function Counter() {
@@ -18,6 +18,11 @@ function Counter() {
   return (
     <div>
       <div>
+        <div>
+          {/* When the "-" button is clicked, dispatch the decrement action to reduce the count. */}
+          <button onClick={() => dispatch(initialize())}>-</button>
+        </div>
+
         {/* When the "-" button is clicked, dispatch the decrement action to reduce the count. */}
         <button onClick={() => dispatch(decrement())}>-</button>
 

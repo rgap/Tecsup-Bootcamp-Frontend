@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 export function useForm(inputs) {
-  // inputs seria una variable ya no un prop
+  // inputs es un variable no un props
   const [values, setValues] = useState(inputs);
 
   const [errors, setErrors] = useState(inputs);
@@ -21,10 +21,11 @@ export function useForm(inputs) {
 
     if (empties.length === 0) {
       setErrors({});
-      return;
+      return true;
     }
 
     setErrors(Object.fromEntries(empties));
+    return false;
   };
 
   return {
