@@ -30,7 +30,7 @@ export default function SignUp() {
     <div className="h-screen flex items-center justify-center max-w-md mx-auto">
       <Card>
         <h1 className="text-2xl font-semibold my-5">Crear Cuenta</h1>
-        <span>Crea tu cuenta 👇</span>
+        <span className="mb-4">Crea tu cuenta 👇</span>
         <Form
           inputs={inputs}
           errors={errors}
