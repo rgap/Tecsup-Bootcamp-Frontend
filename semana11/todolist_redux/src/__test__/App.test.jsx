@@ -1,16 +1,9 @@
+/* eslint-disable no-undef */
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import App from "../App";
-
-const mockUserResponse = {
-  id: 1,
-  name: "Pepe",
-  lastname: "Perez",
-  email: "pepe@gmail.com",
-  password: "pepe12345",
-  createdAt: "today",
-  avatar: "?",
-};
+import { tasks } from "../mock/mockTasks";
+import { mockUserResponse } from "../mock/mockUser";
 
 describe("Render App component", () => {
   it("Test App flow", () => {
@@ -56,7 +49,15 @@ describe("Render App component", () => {
     fireEvent.click(button);
 
     // 27/oct
+
+    global.fetch = vi.fn().mockResolvedValue({
+      json: vi.fn().mockResolvedValue(tasks),
+    });
+
     // expect home redirection
     await waitFor(() => expect(window.location.pathname).toBe("/"));
+
+    const homeTitle = screen.getByText("Crear tu tarea");
+    expect(homeTitle).toBeInTheDocument();
   });
 });
