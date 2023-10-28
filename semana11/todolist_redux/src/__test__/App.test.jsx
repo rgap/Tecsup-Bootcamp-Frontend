@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import App from "../App";
 
@@ -28,7 +28,7 @@ describe("Render App component", () => {
     expect(errors).toHaveLength(4);
   });
 
-  it("Test SignUp", () => {
+  it("Test SignUp", async () => {
     const response = {
       // json will be a function that returns mockUserResponse
       // response.json retorna a mockUserResponse
@@ -54,5 +54,9 @@ describe("Render App component", () => {
 
     const button = screen.getByLabelText("Crear cuenta");
     fireEvent.click(button);
+
+    // 27/oct
+    // expect home redirection
+    await waitFor(() => expect(window.location.pathname).toBe("/"));
   });
 });
